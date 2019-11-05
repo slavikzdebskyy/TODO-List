@@ -22,5 +22,19 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
+  },
+  "paths": {
+    "@todo-list/interfaces": [
+      "src/app/shared/interfaces/index.ts"
+    ],
+    "@todo-list/components": [
+      "src/app/shared/components/index.ts"
+    ],
+    "@todo-list/modules": [
+      "src/app/modules/constants/index.ts"
+    ],
+    "@todo-list/services": [
+      "src/app/services/index.ts"
+    ],
   }
 }
