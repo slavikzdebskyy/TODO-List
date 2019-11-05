@@ -1,0 +1,16 @@
+<header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="toolbar-row">
+      <span>TODO list by Zdebskyy</span>
+      <button *ngIf="isLogined"
+              mat-button
+              matTooltip="Log out">
+          <mat-icon class="log-out-icon"
+                    aria-hidden="false">
+            power_settings_new
+          </mat-icon>
+      </button>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>

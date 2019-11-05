@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
   //  Modules
 import { Constants } from './modules';
+import { AuthGuard } from './modules/auth/auth.guard';
 
 
 const routes: Routes = [
   {
     path: Constants.ROUTERS.EMPTY,
     loadChildren: './core/core.module#CoreModule',
+    canLoad: [AuthGuard],
   },
   {
     path: Constants.ROUTERS.LOGIN,
