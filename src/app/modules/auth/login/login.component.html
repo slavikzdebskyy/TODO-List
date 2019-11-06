@@ -1,1 +1,57 @@
-<p>login works!</p>
+<div class="login-container flex-center-center animation-bg">
+    <form
+    class="login-form col-spc-btwn-cntr"
+    [formGroup]="loginForm"
+  >
+    <div class="flex-center-center title-container">
+      <h3>
+        Login
+      </h3>
+    </div>
+    <mat-form-field  class="form-field">
+      <input
+        autocomplete="off"
+        matInput
+        (keydown.enter)="onLogin()"
+        type="email"
+        placeholder="email"
+        formControlName="email">
+        <mat-error *ngIf="!getEmailErrors('required') && getEmailErrors('email')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="getEmailErrors('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field  class="form-field" >
+      <input
+        matInput
+        (keydown.enter)="onLogin()"
+        placeholder="password"
+        formControlName="password"
+        [type]="hidePswrd ? 'password' : 'text'"
+      >
+      <mat-icon
+        class="pswrd-icon"
+        mat-icon-button
+        matSuffix
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hidePswrd"
+        (click)="hidePswrd = !hidePswrd"
+      >
+        {{hidePswrd ? 'visibility_off' : 'visibility'}}
+      </mat-icon>
+      <mat-error *ngIf="!loginForm.hasError('required')">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="onLogin()"
+      [disabled]="loginForm.invalid">
+      login
+    </button>
+  </form>
+
+</div>

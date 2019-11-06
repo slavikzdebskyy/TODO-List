@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 
   // Services
@@ -11,19 +11,18 @@ import { Constants } from '../constants/constants.module';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanLoad {
+export class AuthGuard implements CanActivate {
 
   constructor(
     private router: Router,
     private storageService: StorageService
   ) {}
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
-      if (!this.storageService.isLogined) {
-        this.router.navigate([Constants.ROUTERS.LOGIN], { replaceUrl: true });
-        return false;
-      }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
+    if (!this.storageService.isLogined()) {
+      this.router.navigate([Constants.ROUTERS.LOGIN], { replaceUrl: true });
+      return false;
+    }
     return true;
-  }
+    }
 }

@@ -4,6 +4,7 @@ import { Observable, Subscriber } from 'rxjs';
 import { User } from '../shared/interfaces';
 import { StorageService } from './storage.service';
 import { Router } from '@angular/router';
+import { Constants } from 'src/app/modules';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,7 @@ export class AuthService {
 
   public logout(): void {
     this.storageService.removeUser();
-    this.router.navigate(['']);
+    this.router.navigate([Constants.ROUTERS.LOGIN]);
   }
 
 }

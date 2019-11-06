@@ -11,10 +11,6 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {
     path: Constants.ROUTERS.EMPTY,
-    redirectTo: Constants.ROUTERS.LOGIN,
-  },
-  {
-    path: Constants.ROUTERS.LOGIN,
     component: LoginComponent,
   },
 ];
