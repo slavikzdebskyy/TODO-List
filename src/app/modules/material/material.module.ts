@@ -9,6 +9,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatListModule } from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
 
 const MODULES: any = [
   CommonModule,
@@ -19,6 +21,8 @@ const MODULES: any = [
   MatFormFieldModule,
   MatInputModule,
   MatSnackBarModule,
+  MatListModule,
+  MatTabsModule,
 ];
 
 @NgModule({
