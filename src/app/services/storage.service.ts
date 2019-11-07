@@ -6,8 +6,10 @@ import { User, Task } from '../shared/interfaces';
 })
 export class StorageService {
 
-  private readonly USER_KEY = 'TODO-user';
-  private readonly TODO_LIST_KEY = 'TODO-list';
+  private readonly USER_KEY: string = 'TODO-user';
+  private readonly TODO_LIST_KEY: string = 'TODO-list';
+  private readonly ID_LENGTH: number = 12;
+  private readonly CHARACTERS: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
   constructor() { }
 
@@ -30,7 +32,13 @@ export class StorageService {
     localStorage.removeItem(this.USER_KEY);
   }
 
-  public saveTask(task: Task): void {
+  public saveTask(title: string): void {
+    const task: Task = {
+      title,
+      id: this.generateId(),
+      isDone: false,
+    }
+
     const tasksData: string =  localStorage.getItem(this.TODO_LIST_KEY);
     const tasks: Task[] = tasksData ? [...JSON.parse(tasksData), task] : [task];
     localStorage.setItem(this.TODO_LIST_KEY, JSON.stringify(tasks));
@@ -57,4 +65,15 @@ export class StorageService {
     });
     localStorage.setItem(this.TODO_LIST_KEY, JSON.stringify(tasks));
   }
+
+  private generateId(): string {
+    let result = '';
+    const charactersLength = this.CHARACTERS.length;
+    for ( let i = 0; i < this.ID_LENGTH; i++ ) {
+       result += this.CHARACTERS.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+ }
+
 }

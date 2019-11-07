@@ -1,0 +1,13 @@
+<div class="row-spc-btwn-cntr input-container">
+  <mat-form-field class="form-field">
+    <input matInput
+            placeholder="Add new task ..."
+            [(ngModel)]="title"
+            (keydown.enter)="onAddTask()">
+  </mat-form-field>
+  <button mat-mini-fab
+          class="add-btn"
+          (click)="onAddTask()">
+    Add
+  </button>
+</div>

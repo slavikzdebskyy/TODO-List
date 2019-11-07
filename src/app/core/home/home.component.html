@@ -1,14 +1,25 @@
 <div class="main-container flex-center-center animation-bg">
   <div class="todo-container col-spc-btwn-cntr">
-    <mat-tab-group>
+    <tdl-input-task (addTask)="onAddTask($event)">
+    </tdl-input-task>
+    <mat-tab-group *ngIf="isTasks">
       <mat-tab label="All">
-        <tdl-todo-list></tdl-todo-list>
+        <tdl-todo-list [tasks]="tasks"
+                       (remove)="onRemove($event)"
+                       (done)="onDone($event)">
+        </tdl-todo-list>
       </mat-tab>
       <mat-tab label="Done">
-        <tdl-todo-list></tdl-todo-list>
+        <tdl-todo-list [tasks]="doneTasks"
+                        (remove)="onRemove($event)"
+                        (done)="onDone($event)">
+        </tdl-todo-list>
       </mat-tab>
       <mat-tab label="To Do">
-        <tdl-todo-list></tdl-todo-list>
+        <tdl-todo-list [tasks]="todoTasks"
+                        (remove)="onRemove($event)"
+                        (done)="onDone($event)">
+        </tdl-todo-list>
       </mat-tab>
     </mat-tab-group>
   </div>

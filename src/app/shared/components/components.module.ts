@@ -6,9 +6,12 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 
   //  Modules
 import { MaterialModule } from 'src/app/modules';
+import { InputTaskComponent } from './input-task/input-task.component';
+import { FormsModule } from '@angular/forms';
 
 const COMPONENTS: any = [
   TodoListComponent,
+  InputTaskComponent,
 ];
 
 @NgModule({
@@ -17,6 +20,7 @@ const COMPONENTS: any = [
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
   ]
 })
 export class ComponentsModule { }
