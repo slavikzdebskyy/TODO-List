@@ -21,3 +21,6 @@ This is simple TODO app.
   
 
 
+### Demo
+
+[TODO List demo](https://slavikzdebskyy.github.io/TODO-list-DEMO)
