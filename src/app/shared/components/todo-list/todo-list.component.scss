@@ -1,0 +1,27 @@
+.list-item {
+  width: 100%;
+  cursor: pointer;
+}
+
+.remove-btn {
+  transition: all .2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    .log-out-icon {
+      transition: all .2s;
+      color: #ff0000;
+    }
+  }
+}
+mat-list-item {
+  transition: all .2s;
+  &:hover {
+    background-color: #f2f2f2;
+  }
+}
+
+.done {
+  text-decoration: line-through;
+}

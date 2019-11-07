@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
   // Modules
 import { CoreRoutingModule } from './core-routing.module';
+import { ComponentsModule } from '../shared/components';
 import { MaterialModule } from '../modules';
 
   //  Components
@@ -21,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     CoreRoutingModule,
     MaterialModule,
+    ComponentsModule,
   ]
 })
 export class CoreModule { }

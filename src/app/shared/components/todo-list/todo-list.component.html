@@ -1,0 +1,23 @@
+<mat-list role="list">
+  <mat-list-item
+    *ngFor="let task of tasks"
+    role="listitem">
+    <div class="list-item row-spc-btwn-cntr">
+      <span class="task-title"
+            [class.done]="task.isDone"
+            (click)="onDone(task)">
+        {{ task.title }}
+      </span>
+      <button
+        class="remove-btn">
+          <mat-icon
+            class="log-out-icon"
+            aria-hidden="false"
+            (click)="onRemove(task)">
+            delete_forever
+          </mat-icon>
+      </button>
+    </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
